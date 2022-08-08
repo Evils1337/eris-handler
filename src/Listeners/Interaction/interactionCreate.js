@@ -12,6 +12,7 @@ class InteractionListener extends ListenerStructure {
         if(!interaction.data.type === 1) return;
            const slashCommand = client.commands.get(interaction.data.name)
         
+           if(slashCommand.slashEnabled === false) return;
            if(!slashCommand) return;
             if(!interaction.member && slashCommand.guildOnly === true) return interaction.createMessage({ content: `This only can used in guilds!`, flags:64});
             if (!cooldowns.has(interaction.data.name)) {

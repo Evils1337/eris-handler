@@ -22,6 +22,7 @@ async action(client, message) {
 		client.commands.get(commandName) ||
 		client.commands.find((cmd) => cmd.aliases && cmd.aliases.includes(commandName));
 	if (!command) return;
+	if(command.enabled === false) return;
     if(command.guildOnly === true) {
         if(!message.channel.guild) return;
     }

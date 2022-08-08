@@ -37,6 +37,7 @@ client.on("ready", () => {
 	for (let fsile of commands) {     
 	let file = require(__dirname+`/ContextMenus/${d}/${fsile}`);    
 	if(d === "User") {
+		
 		client.createCommand({ name: file.name,type: 2})
 	} else {
 		client.createCommand({ name: file.name,type: 3})

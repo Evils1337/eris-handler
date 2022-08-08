@@ -8,8 +8,9 @@ class PingCommand extends CommandStructure {
             aliases: ['pong'], 
             cooldown: 5000, 
             guildOnly: false,
+            enabled: true,
             slashData: { 
-                name: 'ping', options: []
+                name: 'ping', options: [], enabled: true
             }
         })
     }
