@@ -17,7 +17,24 @@ client.commands.set(file.name, file);
 catch (e) {
 console.log(e)
 }
-    
+client.on("ready", () => {
+readdirSync(__dirname+"/Commands/").forEach(async d => { 
+const commands = readdirSync(__dirname+`/Commands/${d}/`);
+for (let fsile of commands) {     
+let file = require(__dirname+`/Commands/${d}/${fsile}`);    
+if(file.slashData) {
+
+client.createCommand({
+name: file.slashData.name,
+description: file.description,
+options: file.slashData.options,
+type: 1
+})
+}
+} 
+});
+});
+
 try {
 	readdirSync(__dirname+"/ContextMenus/").forEach(async d => { 
 	const commands = readdirSync(__dirname+`/ContextMenus/${d}/`);
