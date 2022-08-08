@@ -2,6 +2,7 @@ module.exports = class CommandStructure {
     name;
     description;
     aliases;
+    enabled;
     slashData;
     cooldown;
     guildOnly;
@@ -14,5 +15,7 @@ module.exports = class CommandStructure {
         this.aliases = data.aliases;
         this.cooldown = data.cooldown;
         this.guildOnly = data.guildOnly;
+        this.enabled = data.enabled;
+        this.slashEnabled = data.slashData.enabled;
     }
 }

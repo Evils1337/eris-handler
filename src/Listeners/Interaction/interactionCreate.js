@@ -9,6 +9,7 @@ class InteractionListener extends ListenerStructure {
     }
     async action(client, interaction) {
 	if(interaction instanceof CommandInteraction) {
+        if(!interaction.data.type === 1) return;
            const slashCommand = client.commands.get(interaction.data.name)
         
            if(!slashCommand) return;
